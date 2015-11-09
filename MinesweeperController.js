@@ -63,6 +63,7 @@ function Main($scope) {
         }
         
         $scope.alive = "You lost!"
+        play();
     };
     
     $scope.endmame = function () {
@@ -84,6 +85,8 @@ function Main($scope) {
            $scope.pwnd();
         } else {
            $scope.alive = "You win!"
+           win();
+           play();
         }
     };
 
@@ -167,3 +170,19 @@ function Main($scope) {
         }
     };
 };
+function play() {
+    if (localStorage.plays) {
+        localStorage.plays = Number(localStorage.plays) + 1;
+    } else {
+        localStorage.clickcount = 0;
+    }
+    $scope.plays = localStorage.clickcount;
+}
+function win() {
+    if (localStorage.plays) {
+        localStorage.plays = Number(localStorage.plays) + 1;
+    } else {
+        localStorage.clickcount = 0;
+    }
+    $scope.wins = localStorage.clickcount;
+}
