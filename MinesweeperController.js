@@ -62,7 +62,7 @@ function Main($scope) {
             }
         }
         
-        $scope.alive = "You're PWND!"
+        $scope.alive = "You lost!"
     };
     
     $scope.endmame = function () {
@@ -83,7 +83,7 @@ function Main($scope) {
         if(missed) {
            $scope.pwnd();
         } else {
-           $scope.alive = "Fine! You win!"
+           $scope.alive = "You win!"
         }
     };
 
@@ -121,11 +121,11 @@ function Main($scope) {
 
     $scope.cf = function (st) {
         if (st.value == 0 || st.value == 1)
-            return 'gd gd-hidden';
+            return 'gd gd-show';
         else if (st.value == 2)
             return 'gd gd-show';
         else if (st.value == 3)
-            return 'gd gd-show-mine icon-certificate';
+            return 'gd gd-show-mine fa fa-bomb';
         else if (st.value == 4)
             return 'gd gd-show-missed';
     };
