@@ -90,7 +90,22 @@ function Main($scope) {
         }
     };
 
-    
+    function play() {
+    if (localStorage.plays) {
+        localStorage.plays = Number(localStorage.plays) + 1;
+    } else {
+        localStorage.clickcount = 0;
+    }
+    $scope.plays = localStorage.clickcount;
+}
+function win() {
+    if (localStorage.plays) {
+        localStorage.plays = Number(localStorage.plays) + 1;
+    } else {
+        localStorage.clickcount = 0;
+    }
+    $scope.wins = localStorage.clickcount;
+}
     
     $scope.isz = function (row, col) {
         if (row < 0 || row >= $scope.side || col < 0 || col >= $scope.side)
@@ -170,19 +185,3 @@ function Main($scope) {
         }
     };
 };
-function play() {
-    if (localStorage.plays) {
-        localStorage.plays = Number(localStorage.plays) + 1;
-    } else {
-        localStorage.clickcount = 0;
-    }
-    $scope.plays = localStorage.clickcount;
-}
-function win() {
-    if (localStorage.plays) {
-        localStorage.plays = Number(localStorage.plays) + 1;
-    } else {
-        localStorage.clickcount = 0;
-    }
-    $scope.wins = localStorage.clickcount;
-}
