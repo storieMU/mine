@@ -94,17 +94,17 @@ function Main($scope) {
     if (localStorage.plays) {
         localStorage.plays = Number(localStorage.plays) + 1;
     } else {
-        localStorage.clickcount = 0;
+        localStorage.plays = 0;
     }
-    $scope.plays = localStorage.clickcount;
+    $scope.plays = localStorage.plays;
 }
 function win() {
-    if (localStorage.plays) {
-        localStorage.plays = Number(localStorage.plays) + 1;
+    if (localStorage.wins) {
+        localStorage.wins = Number(localStorage.wins) + 1;
     } else {
-        localStorage.clickcount = 0;
+        localStorage.wins = 0;
     }
-    $scope.wins = localStorage.clickcount;
+    $scope.wins = localStorage.wins;
 }
     
     $scope.isz = function (row, col) {
