@@ -94,7 +94,7 @@ function Main($scope) {
     if (localStorage.plays) {
         localStorage.plays = Number(localStorage.plays) + 1;
     } else {
-        localStorage.plays = 0;
+        localStorage.plays = 1;
     }
     $scope.plays = localStorage.plays;
 }
