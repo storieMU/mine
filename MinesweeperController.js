@@ -121,7 +121,7 @@ function Main($scope) {
 
     $scope.cf = function (st) {
         if (st.value == 0 || st.value == 1)
-            return 'gd gd-show';
+            return 'gd gd-hidden fa fa-circle';
         else if (st.value == 2)
             return 'gd gd-show';
         else if (st.value == 3)
