@@ -6,31 +6,21 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Play!</title>
-		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script> <script src="//code.jquery.com/jquery-2.0.3.js"></script> 
+    
 		<script src="https://apis.google.com/js/platform.js" async defer></script>
-		<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
-		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"></script>
-		<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
-		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+		<script src="js/jquery.js"></script>
+		<script src="js/bootstrap.min.js"></script>
 		<script src="MinesweeperController.js"></script>
 		<link href="main.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 		<link href="css/bootstrap.min.css" rel="stylesheet">
-		
-		<!-- Custom CSS -->
-		<style>
-		body {
-			padding-top: 70px;
-			/* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-		}
-		</style>
+	
   </head>
-	<body>
+	<body class="body">
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
@@ -40,7 +30,6 @@
                 </button>
                 <a class="navbar-brand" href="index.html">Home</a>
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
@@ -54,25 +43,22 @@
                     </li>
                 </ul>
             </div>
-            <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container -->
     </nav>
 
-    <!-- Page Content -->
-   <h1>Minesweeper</h1>
-<div ng-app='minesweeper' ng-controller="Main" ng-init="initstate()">
-    <table class="gdtable">
-        <tr ng-repeat="n in range()">
-            <td ng-repeat="m in range()" class="gdtd">
-                <button ng-class="cf(state[n][m])" ng-click="reveal(n, m);">{{ct(state[n][m], n, m)}}</button>
-            </td>
-        </tr>
-    </table>
-    <br/>
-    <button class="smiley btn btn-warning" ng-click="endmame();"><i class="fa fa-smile-o"></i></button>
-        <button class="smiley btn btn-info" ng-click="reinit();"><i class="fa fa-refresh"></i></button>
-    <b>{{alive}}</b>
-</div>
+   <h1 class="center">Minesweeper</h1>
+		<div ng-app='minesweeper' ng-controller="Main" ng-init="initstate()" class="center-board">
+			<table class="gdtable">
+				<tr ng-repeat="n in range()">
+					<td ng-repeat="m in range()" class="gdtd">
+						<button ng-class="cf(state[n][m])" ng-click="reveal(n, m);">{{ct(state[n][m], n, m)}}</button>
+					</td>
+				</tr>
+			</table>
+			<br/>
+			<button class="smiley btn btn-warning" ng-click="endmame();"><i class="fa fa-smile-o"></i></button>
+				<button class="smiley btn btn-info" ng-click="reinit();"><i class="fa fa-refresh"></i></button>
+			<b>{{alive}}</b>
+		</div>
     </body>
 </html>
