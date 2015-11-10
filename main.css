@@ -30,3 +30,21 @@ td.gdtd {
     font-size:3em;
     font-weight:bold;
 }
+
+.center-board {
+	margin: auto;
+    width: 375px;
+    height: 416px;
+    padding: 5px;
+}
+
+.center {
+	margin: auto;
+	width: 230px;
+	padding: 5px;
+}
+
+.body {
+	padding-top: 70px;
+}
+	

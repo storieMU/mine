@@ -91,21 +91,42 @@ function Main($scope) {
     };
 
     function play() {
-    if (localStorage.plays) {
-        localStorage.plays = Number(localStorage.plays) + 1;
-    } else {
-        localStorage.plays = 1;
-    }
-    $scope.plays = localStorage.plays;
-}
-function win() {
-    if (localStorage.wins) {
-        localStorage.wins = Number(localStorage.wins) + 1;
-    } else {
-        localStorage.wins = 0;
-    }
-    $scope.wins = localStorage.wins;
-}
+
+
+		if (localStorage.plays) {
+			localStorage.plays = Number(localStorage.plays) + 1;
+		} else {
+			localStorage.plays = 1;
+		}
+		$scope.plays = localStorage.plays;
+	}
+
+	function win() {
+		if (localStorage.wins) {
+			localStorage.wins = Number(localStorage.wins) + 1;
+		} else {
+			localStorage.wins = 0;
+		}
+		$scope.wins = localStorage.wins;
+	}
+
+
+		if (localStorage.plays) {
+			localStorage.plays = Number(localStorage.plays) + 1;
+		} else {
+			localStorage.plays = 1;
+		}
+		$scope.plays = localStorage.plays;
+	}
+	function win() {
+		if (localStorage.wins) {
+			localStorage.wins = Number(localStorage.wins) + 1;
+		} else {
+			localStorage.wins = 0;
+		}
+		$scope.wins = localStorage.wins;
+	}
+
     
     $scope.isz = function (row, col) {
         if (row < 0 || row >= $scope.side || col < 0 || col >= $scope.side)
