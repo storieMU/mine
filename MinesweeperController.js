@@ -91,6 +91,7 @@ function Main($scope) {
     };
 
     function play() {
+
 		if (localStorage.plays) {
 			localStorage.plays = Number(localStorage.plays) + 1;
 		} else {
@@ -107,6 +108,7 @@ function Main($scope) {
 		}
 		$scope.wins = localStorage.wins;
 	}
+
     
     $scope.isz = function (row, col) {
         if (row < 0 || row >= $scope.side || col < 0 || col >= $scope.side)
