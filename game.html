@@ -33,19 +33,18 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="login.html">Log-In</a>
+                        <a href="about.html">About</a>
                     </li>
                     <li>
                         <a href="game.html">Play Game</a>
-                    </li>
-                    <li>
-                        <a href="stats.html">Stats</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
    <h1 class="center">Minesweeper</h1>
+   <div class="center-rules"> Game Rules: 10 bombs are hidden below, use your knowledge to win the game. When you think
+   you've won hit the smiley face button to see!</div>
 		<div ng-app='minesweeper' ng-controller="Main" ng-init="initstate()" class="center-board">
 			<table class="gdtable">
 				<tr ng-repeat="n in range()">
@@ -58,8 +57,11 @@
 			<button class="smiley btn btn-warning" ng-click="endmame();"><i class="fa fa-smile-o"></i></button>
 				<button class="smiley btn btn-info" ng-click="reinit();"><i class="fa fa-refresh"></i></button>
 			<b>{{alive}}</b>
-			<b>{{wins}}</b>
-    		<b>{{plays}}</b>
+			<br>
+			<br>
+			<b>Wins: {{wins}}</b>
+			<br>
+    		<b>Lost: {{plays}}</b>
 		</div>
     </body>
 </html>
