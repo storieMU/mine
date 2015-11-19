@@ -2,13 +2,16 @@ var myApp = angular.module('minesweeper', []);
 
 function Main($scope) {
     $scope.alive = "";
-    $scope.side = 8;
+    $scope.side = 8; 
+    $scope.numBombs = 1;
+
     // states:
     //  0 - hidden empty
     //  1 - hidden mine
     //  2 - revealed empty
     //  3 - revealed mine
     //  4 - missed empty
+    
     $scope.state = new Array();
 
     $scope.range = function () {
@@ -177,7 +180,7 @@ function Main($scope) {
     
     $scope.randme = function () {
         var randscreated = 0;
-        while (randscreated < 10) {
+        while (randscreated < $scope.numBombs) {
             var currentrow = Math.floor(Math.random() * ($scope.side));
             var currentcol = Math.floor(Math.random() * ($scope.side));
 
