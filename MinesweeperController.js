@@ -22,7 +22,7 @@ function Main($scope) {
 
     $scope.reveal = function (row, col) {
         if ($scope.state[row][col].value == 1) {
-            $scope.pwnd();
+            $scope.lost();
         } else if ($scope.state[row][col].value == 0) {
             $scope.tryreveal(row, col);
         }
@@ -34,14 +34,14 @@ function Main($scope) {
         if ($scope.state[row][col].value == 0) {
             $scope.state[row][col].value = 2;
 
-            if ($scope.isz(row - 1, col - 1) && 
-                $scope.isz(row - 1, col) && 
-                $scope.isz(row - 1, col + 1) && 
-                $scope.isz(row, col - 1) && 
-                $scope.isz(row, col + 1) && 
-                $scope.isz(row + 1, col - 1) && 
-                $scope.isz(row + 1, col) && 
-                $scope.isz(row + 1, col + 1)) {
+            if ($scope.place(row - 1, col - 1) && 
+                $scope.place(row - 1, col) && 
+                $scope.place(row - 1, col + 1) && 
+                $scope.place(row, col - 1) && 
+                $scope.place(row, col + 1) && 
+                $scope.place(row + 1, col - 1) && 
+                $scope.place(row + 1, col) && 
+                $scope.place(row + 1, col + 1)) {
                     $scope.tryreveal(row - 1, col - 1);
                     $scope.tryreveal(row - 1, col);
                     $scope.tryreveal(row - 1, col + 1);
@@ -54,7 +54,7 @@ function Main($scope) {
         }
     };
     
-    $scope.pwnd = function () {
+    $scope.lost = function () {
         for(var i = 0; i< $scope.side; i++) {
             for(var j = 0; j < $scope.side; j++) {
                 if($scope.state[i][j].value == 0) {
@@ -69,7 +69,7 @@ function Main($scope) {
         play();
     };
     
-    $scope.endmame = function () {
+    $scope.endgame = function () {
         if($scope.alive != "") {
             return;
         }
@@ -85,7 +85,7 @@ function Main($scope) {
         }
         
         if(missed) {
-           $scope.pwnd();
+           $scope.lost();
         } else {
            $scope.alive = "You win!"
            win();
@@ -113,7 +113,7 @@ function Main($scope) {
 		$scope.wins = localStorage.wins;
 	}
     
-    $scope.isz = function (row, col) {
+    $scope.place = function (row, col) {
         if (row < 0 || row >= $scope.side || col < 0 || col >= $scope.side)
             return true;
 
@@ -127,14 +127,14 @@ function Main($scope) {
             return "";
         
         var ret = 
-            !$scope.isz(row - 1, col - 1) + 
-            !$scope.isz(row - 1, col) + 
-            !$scope.isz(row - 1, col + 1) + 
-            !$scope.isz(row, col - 1) + 
-            !$scope.isz(row, col + 1) + 
-            !$scope.isz(row + 1, col - 1) + 
-            !$scope.isz(row + 1, col) + 
-            !$scope.isz(row + 1, col + 1);
+            !$scope.place(row - 1, col - 1) + 
+            !$scope.place(row - 1, col) + 
+            !$scope.place(row - 1, col + 1) + 
+            !$scope.place(row, col - 1) + 
+            !$scope.place(row, col + 1) + 
+            !$scope.place(row + 1, col - 1) + 
+            !$scope.place(row + 1, col) + 
+            !$scope.place(row + 1, col + 1);
         
         if(ret == 0) {
             return "";
@@ -143,7 +143,7 @@ function Main($scope) {
         return ret;
     };
 
-    $scope.cf = function (st) {
+    $scope.gamestate = function (st) {
         if (st.value == 0 || st.value == 1)
             return 'gd gd-hidden fa fa-circle';
         else if (st.value == 2)
@@ -164,7 +164,7 @@ function Main($scope) {
             }
         }
 
-        $scope.randme();
+        $scope.randomMine();
     };
     
     $scope.reinit = function () {
@@ -175,10 +175,10 @@ function Main($scope) {
             }
         }
 
-        $scope.randme();
+        $scope.randomMine();
     };
     
-    $scope.randme = function () {
+    $scope.randMine = function () {
         var randscreated = 0;
         while (randscreated < $scope.numBombs) {
             var currentrow = Math.floor(Math.random() * ($scope.side));
