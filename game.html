@@ -49,12 +49,12 @@
 			<table class="gdtable">
 				<tr ng-repeat="n in range()">
 					<td ng-repeat="m in range()" class="gdtd">
-						<button ng-class="cf(state[n][m])" ng-click="reveal(n, m);">{{ct(state[n][m], n, m)}}</button>
+						<button ng-class="cf(state[n][m])" ng-click="reveal(n, m);">{{place(state[n][m], n, m)}}</button>
 					</td>
 				</tr>
 			</table>
 			<br/>
-			<button class="smiley btn btn-warning" ng-click="endmame();"><i class="fa fa-smile-o"></i></button>
+			<button class="smiley btn btn-warning" ng-click="endgame();"><i class="fa fa-smile-o"></i></button>
 				<button class="smiley btn btn-info" ng-click="reinit();"><i class="fa fa-refresh"></i></button>
 			<b>{{alive}}</b>
 			<br>
